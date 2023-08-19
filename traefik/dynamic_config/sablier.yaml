@@ -1,4 +1,5 @@
 # https://acouvreur.github.io/sablier/#/plugins/traefik
+# https://acouvreur.github.io/sablier/#/strategies
 http:
   middlewares:
     sablier-dynamic:
@@ -12,3 +13,12 @@ http:
             refreshFrequency: 1s
             showDetails: true
             theme: shuffle
+
+    sablier-blocking:
+      plugin:
+        sablier:
+          sablierUrl: http://sablier:10000
+          sessionDuration: 1m
+          names: whoami
+          blocking:
+            defaultTimeout: 10s

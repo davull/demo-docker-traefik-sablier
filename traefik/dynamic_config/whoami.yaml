@@ -13,3 +13,11 @@ http:
         - web
       middlewares:
         - sablier-dynamic@file
+
+    whoami-blocking-router:
+      rule: "Host(`whoami-blocking.example.com`)"
+      service: whoami-service
+      entryPoints:
+        - web
+      middlewares:
+        - sablier-blocking@file
