@@ -7,6 +7,18 @@ services:
     networks:
       - traefik
 
+  whoami-nginx:
+    container_name: nginx
+    image: traefik/whoami
+    networks:
+      - traefik
+
+  whoami-mariadb:
+    container_name: mariadb
+    image: traefik/whoami
+    networks:
+      - traefik
+
 networks:
   traefik:
     name: traefik

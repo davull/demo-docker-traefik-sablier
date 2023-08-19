@@ -7,7 +7,7 @@ http:
         sablier:
           sablierUrl: http://sablier:10000
           sessionDuration: 1m
-          names: whoami
+          names: whoami,nginx,mariadb
           dynamic:
             displayName: whoami
             refreshFrequency: 1s
