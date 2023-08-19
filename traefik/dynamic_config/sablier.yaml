@@ -1,0 +1,14 @@
+# https://acouvreur.github.io/sablier/#/plugins/traefik
+http:
+  middlewares:
+    sablier-dynamic:
+      plugin:
+        sablier:
+          sablierUrl: http://sablier:10000
+          sessionDuration: 1m
+          names: whoami
+          dynamic:
+            displayName: whoami
+            refreshFrequency: 1s
+            showDetails: true
+            theme: shuffle

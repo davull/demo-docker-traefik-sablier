@@ -16,6 +16,12 @@ entryPoints:
   web:
     address: :80
 
+experimental:
+  plugins:
+    sablier:
+      moduleName: "github.com/acouvreur/sablier"
+      version: "v1.3.0"
+
 log:
   filePath: /etc/traefik/log/traefik.log
   level: INFO

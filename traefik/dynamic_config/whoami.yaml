@@ -6,8 +6,10 @@ http:
           - url: http://whoami:80
 
   routers:
-    whoami-router:
-      rule: "Host(`whoami.example.com`)"
+    whoami-dynamic-router:
+      rule: "Host(`whoami-dynamic.example.com`)"
       service: whoami-service
       entryPoints:
         - web
+      middlewares:
+        - sablier-dynamic@file
