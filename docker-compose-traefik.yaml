@@ -10,6 +10,7 @@ services:
     volumes:
       - //var/run/docker.sock:/var/run/docker.sock
       - ./traefik/traefik.yml:/etc/traefik/traefik.yml
+      - ./traefik/dynamic_config/:/etc/traefik/dynamic_config/
       - ./traefik/log/:/etc/traefik/log/
     networks:
       - traefik

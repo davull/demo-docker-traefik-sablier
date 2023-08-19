@@ -6,10 +6,6 @@ services:
     image: traefik/whoami
     networks:
       - traefik
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.whoami-router.rule=Host(`whoami.example.com`)"
-      - "traefik.http.routers.whoami-router.entrypoints=web"
 
 networks:
   traefik:
