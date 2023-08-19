@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  traefik:
+    container_name: traefik
+    image: traefik:v2.10
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - //var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml
+      - ./traefik/log/:/etc/traefik/log/
+    networks:
+      - traefik
+    environment:
+      - TZ=Europe/Berlin
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik-router.rule=Host(`example.com`) && ( PathPrefix(`/traefik`) || HeadersRegexp(`Referer`, `.*/traefik/.*`) )"
+      - "traefik.http.routers.traefik-router.service=api@internal"
+      - "traefik.http.routers.traefik-router.entrypoints=web"
+      - "traefik.http.routers.traefik-router.middlewares=traefik-middleware-stripprefix"
+      - "traefik.http.middlewares.traefik-middleware-stripprefix.stripprefix.prefixes=/traefik"
+
+networks:
+  traefik:
+    name: traefik

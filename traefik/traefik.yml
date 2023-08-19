@@ -1,0 +1,21 @@
+# https://doc.traefik.io/traefik/operations/api/
+api:
+  dashboard: true
+
+# https://doc.traefik.io/traefik/providers/docker/
+providers:
+  docker:
+    exposedByDefault: false
+    network: traefik
+
+# https://doc.traefik.io/traefik/routing/entrypoints/
+entryPoints:
+  web:
+    address: :80
+
+log:
+  filePath: /etc/traefik/log/traefik.log
+  level: INFO
+
+accessLog:
+  filePath: /etc/traefik/log/access.log
