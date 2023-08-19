@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  whoami:
+    container_name: whoami
+    image: traefik/whoami
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami-router.rule=Host(`whoami.example.com`)"
+      - "traefik.http.routers.whoami-router.entrypoints=web"
+
+networks:
+  traefik:
+    name: traefik
+    external: true
