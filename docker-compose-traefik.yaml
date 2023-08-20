@@ -8,7 +8,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - //var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik/traefik.yml:/etc/traefik/traefik.yml
       - ./traefik/dynamic_config/:/etc/traefik/dynamic_config/
       - ./traefik/log/:/etc/traefik/log/
@@ -31,7 +31,7 @@ services:
       - start
       - --provider.name=docker
     volumes:
-      - //var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - traefik
 
